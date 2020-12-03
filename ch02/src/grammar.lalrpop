@@ -1,0 +1,9 @@
+use std::str::FromStr;
+grammar;
+
+pub Line: (usize,usize,char,String) = <start:Num> "-" <end:Num> <letter:Char> ":" <content:Str> 
+    => (start, end, letter, content);
+
+Num: usize = <s:r"[0-9]+"> => usize::from_str(s).unwrap();
+Char: char = <c:r"[a-z]"> => char::from_str(c).unwrap();
+Str: String = <x:r"[a-z][a-z]+"> => String::from(x);

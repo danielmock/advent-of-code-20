@@ -1,0 +1,17 @@
+[package]
+name = "ch02"
+version = "0.1.0"
+authors = ["Daniel Mock <mock@cs.rwth-aachen.de>"]
+edition = "2018"
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies] # <-- We added this and everything after!
+lalrpop = "0.19.1"
+
+[dependencies]
+lalrpop-util = "0.19.1"
+regex = "1"
+
+lalrpop = { version = "0.19.1", features = ["lexer"] }
